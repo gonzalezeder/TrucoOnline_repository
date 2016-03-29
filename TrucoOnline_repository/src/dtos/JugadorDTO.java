@@ -2,35 +2,68 @@ package dtos;
 
 import java.io.Serializable;
 
-public class JugadorDTO implements Serializable{
-	private int numeroJugador;
-	private String nombre;
+public class JugadorDTO implements Serializable {
+	private int idJugador;
+	private String apodo;
+	private String mail;
+	private String password;
+	private String categoria;
 
-	public JugadorDTO(int numeroJugador, String nombre) {
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public JugadorDTO(int numeroJugador, String apodo) {
 		this.setNumeroJugador(numeroJugador);
-		this.setNombre(nombre);
+		this.setApodo(apodo);
 
 	}
-
-	public String getNombre() {
-		return nombre;
+	
+	public JugadorDTO(int numeroJugador, String apodo, String categoria) {
+		this.setNumeroJugador(numeroJugador);
+		this.setApodo(apodo);
+		this.setCategoria(categoria);
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public String getApodo() {
+		return apodo;
+	}
+
+	public void setApodo(String nombre) {
+		this.apodo = nombre;
 	}
 
 	public int getNumeroJugador() {
-		return numeroJugador;
+		return idJugador;
 	}
 
 	public void setNumeroJugador(int numeroJugador) {
-		this.numeroJugador = numeroJugador;
+		this.idJugador = numeroJugador;
 	}
 
 	@Override
 	public String toString() {
-		return "Jugador [nombre=" + nombre + ", numeroJugador=" + numeroJugador
+		return "Jugador [nombre=" + apodo + ", numeroJugador=" + idJugador
 				+ "]";
 	}
 }
