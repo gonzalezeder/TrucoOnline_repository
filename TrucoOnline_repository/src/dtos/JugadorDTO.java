@@ -3,11 +3,51 @@ package dtos;
 import java.io.Serializable;
 
 public class JugadorDTO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7145588015062869981L;
 	private int idJugador;
 	private String apodo;
 	private String mail;
 	private String password;
-	private String categoria;
+	private CategoriaDTO categoria;
+	private EstadisticaDTO estadistica;
+
+	public JugadorDTO(int idJugador, String apodo, String mail,
+			String password, CategoriaDTO categoria, EstadisticaDTO estadistica) {
+		super();
+		this.idJugador = idJugador;
+		this.apodo = apodo;
+		this.mail = mail;
+		this.password = password;
+		this.categoria = categoria;
+		this.estadistica = estadistica;
+	}
+
+	public int getIdJugador() {
+		return idJugador;
+	}
+
+	public void setIdJugador(int idJugador) {
+		this.idJugador = idJugador;
+	}
+
+	public CategoriaDTO getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaDTO categoria) {
+		this.categoria = categoria;
+	}
+
+	public EstadisticaDTO getEstadistica() {
+		return estadistica;
+	}
+
+	public void setEstadistica(EstadisticaDTO estadistica) {
+		this.estadistica = estadistica;
+	}
 
 	public String getMail() {
 		return mail;
@@ -23,26 +63,6 @@ public class JugadorDTO implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-	public JugadorDTO(int numeroJugador, String apodo) {
-		this.setNumeroJugador(numeroJugador);
-		this.setApodo(apodo);
-
-	}
-	
-	public JugadorDTO(int numeroJugador, String apodo, String categoria) {
-		this.setNumeroJugador(numeroJugador);
-		this.setApodo(apodo);
-		this.setCategoria(categoria);
 	}
 
 	public String getApodo() {
@@ -61,9 +81,7 @@ public class JugadorDTO implements Serializable {
 		this.idJugador = numeroJugador;
 	}
 
-	@Override
-	public String toString() {
-		return "Jugador [nombre=" + apodo + ", numeroJugador=" + idJugador
-				+ "]";
-	}
+	
+	
 }
+
