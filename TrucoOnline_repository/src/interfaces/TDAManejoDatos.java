@@ -21,4 +21,6 @@ public interface TDAManejoDatos extends Remote  {
 	public Set<JugadorDTO> obtengoJugadores()throws RemoteException;
 	
 	public int cantidadJugadores() throws RemoteException;
+	
+	public boolean validarLogin(String usuario, String password)throws RemoteException;
 }
