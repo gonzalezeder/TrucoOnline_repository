@@ -13,4 +13,12 @@ public class ModalidadDTO {
 	public void setModalidad(int modalidad) {
 		this.modalidad = modalidad;
 	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
 }

@@ -1,12 +1,14 @@
 package dtos;
 
 public class CategoriaDTO {
+	private int id;
 	private String name;
 	private int cantPartidas;
 	private int puntaje;
 	private float promedio;
 	
-	public CategoriaDTO(String name, int cantPartidas, int puntaje, float promedio) {
+	public CategoriaDTO(int id, String name, int cantPartidas, int puntaje, float promedio) {
+		this.id = id;
 		this.name = name;
 		this.cantPartidas = cantPartidas;
 		this.puntaje = puntaje;
@@ -44,8 +46,14 @@ public class CategoriaDTO {
 	public void setPromedio(float promedio) {
 		this.promedio = promedio;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 }
-
