@@ -1,12 +1,10 @@
+
 package dtos;
 
-import java.io.Serializable;
 
-public class JugadorDTO implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7145588015062869981L;
+public class JugadorDTO {
+
+	
 	private int idJugador;
 	private String apodo;
 	private String mail;
@@ -83,5 +81,5 @@ public class JugadorDTO implements Serializable {
 
 	
 	
+	
 }
-

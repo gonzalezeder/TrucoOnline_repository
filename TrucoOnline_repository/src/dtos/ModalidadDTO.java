@@ -13,5 +13,4 @@ public class ModalidadDTO {
 	public void setModalidad(int modalidad) {
 		this.modalidad = modalidad;
 	}
-
 }

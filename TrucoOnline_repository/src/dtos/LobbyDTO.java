@@ -1,7 +1,7 @@
 package dtos;
 
 public class LobbyDTO {
-	
+
 	private int id;
 	private JugadorDTO jugador;
 	private ModalidadDTO modalidad;
