@@ -15,6 +15,10 @@ public class CategoriaDTO {
 		this.promedio = promedio;
 	}
 
+	public CategoriaDTO(int categoria) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
