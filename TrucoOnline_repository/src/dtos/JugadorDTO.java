@@ -73,13 +73,6 @@ public class JugadorDTO implements Serializable {
 		this.apodo = nombre;
 	}
 
-	public int getNumeroJugador() {
-		return idJugador;
-	}
-
-	public void setNumeroJugador(int numeroJugador) {
-		this.idJugador = numeroJugador;
-	}
 
 	
 	
