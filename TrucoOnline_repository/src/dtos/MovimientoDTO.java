@@ -16,6 +16,15 @@ public class MovimientoDTO {
 		this.envido=envido;
 		
 	}
+	
+	public MovimientoDTO(int idMovimiento, JugadorDTO jugador,
+			TipoCantoDTO canto, CartaDTO carta, int envido) {
+		this.idMovimiento = idMovimiento;
+		this.jugador = jugador;
+		this.canto = canto;
+		this.carta = carta;
+		this.envido = envido;
+	}
 
 	public int getIdMovimiento() {
 		return idMovimiento;

@@ -9,8 +9,6 @@ import java.util.Random;
 
 
 
-
-
 public class JuegoDTO {
 
 	private int idJuego;
@@ -57,12 +55,26 @@ public class JuegoDTO {
 				System.out.println("Ya se jugaron las tres partidas.");
 			else{
 				partidas.add(p);
+				if(this.getEstado().getId()==1)
+					this.setEstado(new EstadoDTO(2, "En curso"));
 				p.repartirCartas(cartas);
 			}
 		}else{
 			int i = partidas.indexOf(p);
-			p.repartirCartas(cartas);
-			partidas.set(i,p);
+			if(p.verificarResultado() == 0){
+				p.repartirCartas(cartas);
+				partidas.set(i,p);
+			}else{
+				p.setEstado(new EstadoDTO(3, "Finalizada"));
+				partidas.set(i,p);
+				p = iniciarPartida();
+				if(p==null)
+					System.out.println("Ya se jugaron las tres partidas.");
+				else{
+					p.repartirCartas(cartas);
+				}
+				
+			}
 		}
 	}
 	
@@ -79,7 +91,7 @@ public class JuegoDTO {
 
 	private PartidaDTO buscarPartidaEnCurso() {
 		for(PartidaDTO p: partidas){
-			if(p.getEstado().getId()==1)
+			if(p.getEstado().getId()!=3)
 				return p;
 		}
 		return null;
@@ -116,6 +128,74 @@ public class JuegoDTO {
 		 }
 		return jugadores;
 	}
+
+	public boolean validarTurno(JugadorDTO jug) {
+		if(existeJug(jug))
+			if(esSuTurno(jug))
+				return true;
+			else
+				return false;
+			
+		else{
+			return false;
+		}
+			
+	}
+
+	private boolean esSuTurno(JugadorDTO jug) {
+		PartidaDTO p = buscarPartidaEnCurso();
+		if(p!=null)
+			return p.esSuTurno(jug);
+		return false;
+	}
+
+	private boolean existeJug(JugadorDTO jug) {
+		if(equipo1.getJugador1().getIdJugador()==jug.getIdJugador())
+			return true;
+		if(equipo1.getJugador2().getIdJugador()==jug.getIdJugador())
+			return true;
+		if(equipo2.getJugador1().getIdJugador()==jug.getIdJugador())
+			return true;
+		if(equipo2.getJugador2().getIdJugador()==jug.getIdJugador())
+			return true;
+		return false;
+	}
+
+	public List<CartaDTO> verCartas(JugadorDTO jug) {
+		PartidaDTO p = buscarPartidaEnCurso();
+		if(p!=null)
+			return p.verCartas(jug);
+		return null;
+	}
+
+	public boolean jugarCarta(CartaDTO carta, JugadorDTO jug) {
+		PartidaDTO p = buscarPartidaEnCurso();
+		if(p!=null)
+			return p.jugarCarta(carta, jug);
+		return false;
+	
+	}
+
+	public JugadorDTO verTurno() {
+		PartidaDTO p = buscarPartidaEnCurso();
+		if(p!=null)
+			return p.verTurno();
+		return null;
+		
+	}
+
+	public List<CartaDTO> verCartasJugables(JugadorDTO jug) {
+		PartidaDTO p = buscarPartidaEnCurso();
+		if(p!=null)
+			return p.verCartasJugables(jug);
+		return null;
+	}
+
+	public boolean Cantar(JugadorDTO jug, TipoCantoDTO canto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 
 	public int getIdJuego() {
 		return idJuego;
@@ -161,7 +241,5 @@ public class JuegoDTO {
 		this.modalidad = modalidad;
 	}
 
-	
-	
 
 }

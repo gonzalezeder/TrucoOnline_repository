@@ -41,11 +41,11 @@ public class ManoJugadorDTO {
 		return false;
 	}
 
-	public boolean cartaNoJugada(int carta) {
+	public boolean cartaJugada(CartaDTO carta) {
 		for(ManoJugadorCartaDTO mjc: cartas)
-			if(mjc.getCarta().getIdCarta()==carta && mjc.isJugada())
-				return false;
-		return true;
+			if(mjc.getCarta().getIdCarta()==carta.getIdCarta() && mjc.isJugada())
+				return true;
+		return false;
 	}
 
 	public List<CartaDTO> verCartas() {
@@ -55,13 +55,12 @@ public class ManoJugadorDTO {
 		return c;
 	}
 
-	public CartaDTO jugarCarta(int carta) {
+	public void jugarCarta(CartaDTO carta) {
 		for(ManoJugadorCartaDTO mjc: cartas)
-			if(mjc.getCarta().getIdCarta()== carta){
+			if(mjc.getCarta().getIdCarta()== carta.getIdCarta()){
 				mjc.setJugada(true);
-				return mjc.getCarta();
+				return;
 			}
-		return null;
 	}
 	
 
@@ -103,6 +102,14 @@ public class ManoJugadorDTO {
 
 	public void setJugador(JugadorDTO jugador) {
 		this.jugador = jugador;
+	}
+
+	public List<CartaDTO> verCartasJugables() {
+		List<CartaDTO> c = new ArrayList<CartaDTO>();
+		for(ManoJugadorCartaDTO mjc: cartas)
+			if (!mjc.isJugada())
+				c.add(mjc.getCarta());
+		return c;
 	}
 	
 }

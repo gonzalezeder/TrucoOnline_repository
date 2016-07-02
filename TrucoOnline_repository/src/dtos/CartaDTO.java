@@ -5,15 +5,17 @@ public class CartaDTO {
 	private int numero;
 	private String palo;
 	private int valorEnvido;
+	private int valorTruco;
 	private String archivo;
 	
 
-	public CartaDTO(int idCarta, int numero, String palo, int valorEnvido, String archivo) {
+	public CartaDTO(int idCarta, int numero, String palo, int env, String archivo, int valorTruco){
 		this.idCarta = idCarta;
 		this.numero = numero;
 		this.palo = palo;
-		this.valorEnvido = valorEnvido;
+		this.valorEnvido = env;
 		this.archivo=archivo;
+		this.valorTruco=valorTruco;
 	}
 	
 	
@@ -53,6 +55,18 @@ public class CartaDTO {
 
 	public void setArchivo(String archivo) {
 		this.archivo = archivo;
+	}
+
+
+
+	public int getValorTruco() {
+		return valorTruco;
+	}
+
+
+
+	public void setValorTruco(int valorTruco) {
+		this.valorTruco = valorTruco;
 	}
 
 	
